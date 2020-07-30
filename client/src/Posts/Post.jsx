@@ -14,7 +14,7 @@ const Post = ({ data, match, deleted }) => {
 
           <div className="d-flex justify-content-center">
             <NavItem
-              href={`${match.path}/edit/${data.id}`}
+              href={`${match.path}/edit/${data.id}?editing=true`}
               className="btn btn-sm btn-primary"
             >
               Edit
