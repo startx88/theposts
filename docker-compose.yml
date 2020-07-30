@@ -1,0 +1,39 @@
+version: "3"
+services:
+  # mongo:
+  #   image: "mongo:latest"
+  #   restart: always
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: example
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - "5000:80"
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./server
+    volumes:
+      - /app/node_modules
+      - ./server:/app
+    environment:
+      - DATABASE= theblogs
+      - USER_NAME= learnui
+      - PASSWORD= learnui88
+      - PORT= 4200
+      - SECRET_KEY= ilovedockerapplication
+  client:
+    stdin_open: true
+    restart: always
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /app/node_modules
+      - ./client:/app

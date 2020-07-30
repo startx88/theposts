@@ -1,0 +1,21 @@
+html {
+  min-height: 100vh;
+}
+
+body {
+  min-height: inherit;
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#root > .container {
+  flex: 1;
+}
