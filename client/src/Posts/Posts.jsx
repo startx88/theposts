@@ -9,7 +9,8 @@ const Posts = (props) => {
   useEffect(() => {
     const loadPosts = async () => {
       const response = await axios.get("/api/posts");
-      const { data } = await response;
+      const { data } = await response.data;
+      console.log("res", data);
       setState(data);
     };
 
@@ -23,9 +24,10 @@ const Posts = (props) => {
 
   // Delete post
   const deletePost = async (id) => {
-    const response = await axios.post(`/api/posts/delete/${id}`);
+    const response = await axios.delete(`/api/posts/${id}`);
     const { data, message } = await response;
     console.log(response);
+    setMessage(message);
   };
 
   return (

@@ -19,3 +19,11 @@ body {
 #root > .container {
   flex: 1;
 }
+
+.card-img {
+  max-height: 200px;
+  overflow: hidden;
+  img {
+    max-width: 100%;
+  }
+}
