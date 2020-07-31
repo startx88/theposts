@@ -1,5 +1,4 @@
 language: generic
-sudo: required
 services:
   - docker
 
@@ -16,6 +15,7 @@ after_success:
   # login to docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # take those images and push them to the docker hub
+  # 0e7c098c-2494-42cf-8821-675690308cf8
   - docker push startx88/theposts-client
   - docker push startx88/theposts-nginx
   - docker push startx88/theposts-server
