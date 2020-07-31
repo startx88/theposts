@@ -6,7 +6,7 @@ before_install:
   - docker build -t startx88/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run startx88/react-test npm run test -- --coverage
+  - docker run startx88/react-test npm test -- --coverage
 
 after_success:
   - docker build -t startx88/theposts-client ./client
